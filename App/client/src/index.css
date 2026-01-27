@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-surface: #121212;
+  --color-surface-highlight: #262626;
+  --color-border: #363636;
+  --color-primary: #0095F6;
+  --color-primary-hover: #0088E6;
+  --color-text-main: #F5F5F5;
+  --color-text-muted: #A8A8A8;
+}
+
+@layer base {
+  :root {
+    /* Default Dark Theme */
+    --color-background: #000000;
+    --color-surface: #121212;
+    --color-surface-highlight: #262626;
+    --color-border: #363636;
+    --color-text-main: #F5F5F5;
+    --color-text-muted: #A8A8A8;
+
+    /* Glassmorphism Variables Default (Dark) */
+    --glass-panel-bg: rgba(20, 20, 20, 0.6);
+    --glass-panel-border: rgba(255, 255, 255, 0.08);
+    --glass-card-bg: rgba(30, 30, 30, 0.6);
+    --glass-card-border: rgba(255, 255, 255, 0.05);
+  }
+
+  .light-theme {
+    --color-background: #F8F9FA;
+    --color-surface: #FFFFFF;
+    --color-surface-highlight: #F0F2F5;
+    --color-border: #E5E7EB;
+    --color-text-main: #111827;
+    --color-text-muted: #6B7280;
+
+    /* Glassmorphism Variables Light */
+    --glass-panel-bg: rgba(255, 255, 255, 0.75);
+    --glass-panel-border: rgba(20, 20, 20, 0.05);
+    --glass-card-bg: rgba(255, 255, 255, 0.5);
+    --glass-card-border: rgba(20, 20, 20, 0.05);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
+@layer components {
+
+  /* Component Classes */
+  .nexus-card {
+    background-color: var(--color-surface-highlight);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    transition: all 0.3s;
+  }
+
+  .nexus-card:hover {
+    border-color: #4b5563;
+  }
+
+  .nexus-input {
+    width: 100%;
+    background-color: var(--color-surface-highlight);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem 1rem 3rem;
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Autofill Override */
+  .nexus-input:-webkit-autofill,
+  .nexus-input:-webkit-autofill:hover,
+  .nexus-input:-webkit-autofill:focus,
+  .nexus-input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--color-text-main);
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px rgba(255, 255, 255, 0.05);
+  }
+
+  .nexus-input:focus {
+    background-color: var(--color-surface);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(0, 149, 246, 0.1);
+  }
+
+  .nexus-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .nexus-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nexus-btn:active {
+    transform: scale(0.95);
+  }
+
+  .nexus-btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 149, 246, 0.2);
+  }
+
+  .nexus-btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .nexus-btn-outline {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+  }
+
+  .nexus-btn-outline:hover {
+    border-color: var(--color-text-muted);
+    color: var(--color-text-main);
+  }
+
+  /* Glassmorphism Utilities */
+  .glass-panel {
+    background-color: var(--glass-panel-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-panel-border);
+  }
+
+  .glass-card {
+    background-color: var(--glass-card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-card-border);
+  }
+}
+
+/* Scrollbar specifically for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

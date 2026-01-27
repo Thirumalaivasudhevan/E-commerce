@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* Modern, Clean, Modular Palette for Riho */
+  --color-primary: #006666; /* Teal Primary */
+  --color-primary-hover: #004d4d;
+  --color-primary-active: #003333;
+  --color-primary-light: #e6f2f2;
+  
+  --color-orange: #fe6a49; /* Orange Accent */
+  --color-orange-hover: #e55c3f;
+  
+  --color-background: #f8f9fa; /* Light Gray BG */
+  --color-surface: #ffffff; /* White BG */
+  
+  --color-text-main: #2b2b2b; /* Dark Text */
+  --color-text-muted: #6c757d;
+  
+  --font-family-sans: 'Montserrat', sans-serif;
+  
+  --radius-xl: 8px; /* Border Radius */
+}
+
+/* Base Styles */
+body {
+  @apply bg-background text-text-main font-sans;
+}
+
+/* Component Classes */
+.riho-card {
+  @apply bg-surface rounded-xl border border-gray-100 p-6 shadow-sm;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); /* Custom Shadow */
+}
+
+.riho-input {
+  @apply w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder:text-gray-400 text-gray-700 bg-gray-50/30;
+}
+
+.btn {
+  @apply px-5 py-2.5 rounded-[8px] font-semibold transition-all active:scale-95 flex items-center justify-center gap-2;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/20;
+}
+
+.btn-accent {
+  @apply bg-orange text-white hover:bg-orange-hover shadow-lg shadow-orange/20;
+}
+
+.btn-outline {
+  @apply border border-gray-200 hover:bg-gray-50 text-text-main;
+}
+
+/* Sidebar Custom Style (Teal background as per JSON) */
+.sidebar-teal {
+  @apply bg-primary text-white;
+}
+
+/* Hide scroller */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoice-content, #invoice-content * {
+    visibility: visible;
+  }
+  #invoice-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
+    background: white !important;
+  }
+  #invoice-content * {
+    color: black !important;
+    text-shadow: none !important;
+  }
+  #invoice-content button {
+    display: none !important;
+  }
+}
