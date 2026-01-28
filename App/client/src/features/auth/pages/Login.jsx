@@ -46,7 +46,7 @@ export default function Login() {
   };
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center lg:justify-end lg:pr-[29.5%] overflow-hidden font-sans">
+    <div className="relative w-full h-screen flex items-center justify-center lg:justify-end lg:pr-32 overflow-hidden font-sans">
 
       {/* 🚀 Initial Loading Screen */}
       <AnimatePresence>
@@ -73,7 +73,7 @@ export default function Login() {
         onCanPlayThrough={() => setIsVideoLoaded(true)}
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
       >
-        <source src="/assets/login-bg-final.mp4" type="video/mp4" />
+        <source src="/assets/Login_Animation.mp4" type="video/mp4" />
       </video>
 
       {/* Login Card - Animated Entrance */}
@@ -81,35 +81,35 @@ export default function Login() {
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={isVideoLoaded ? { opacity: 1, y: 0, scale: 1 } : {}}
         transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-[420px] bg-white/60 backdrop-blur-xl p-10 rounded-[30px] shadow-2xl text-center flex flex-col items-center"
+        className="w-full max-w-[420px] bg-white/60 backdrop-blur-xl p-10 rounded-[30px] shadow-2xl text-center flex flex-col items-center text-gray-900"
       >
         {/* Title */}
-        <h2 className="text-[#333] text-[2rem] font-bold mb-8">Login</h2>
+        <h2 className="text-gray-900 text-[2rem] font-bold mb-8">Login</h2>
 
         <form onSubmit={handleSubmit} className="w-full text-left">
           {/* Email Field */}
           <div className="w-full mb-6">
-            <label className="block text-[0.9rem] text-[#555] mb-2 font-medium ml-1">Email Address</label>
+            <label className="block text-[0.9rem] text-gray-800 mb-2 font-medium ml-1">Email Address</label>
             <input
               type="email"
               placeholder="Email address"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-4 rounded-[12px] border border-gray-200 bg-white/50 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              className="w-full p-4 rounded-[12px] border border-gray-200 bg-white/50 text-gray-900 placeholder:text-gray-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
             />
           </div>
 
           {/* Password Field */}
           <div className="w-full mb-6">
-            <label className="block text-[0.9rem] text-[#555] mb-2 font-medium ml-1">Password</label>
+            <label className="block text-[0.9rem] text-gray-800 mb-2 font-medium ml-1">Password</label>
             <input
               type="password"
               placeholder="••••••••"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-4 rounded-[12px] border border-gray-200 bg-white/50 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              className="w-full p-4 rounded-[12px] border border-gray-200 bg-white/50 text-gray-900 placeholder:text-gray-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
             />
           </div>
 
