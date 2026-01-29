@@ -1,4 +1,4 @@
-# Nexus - Advanced Enterprise Dashboard & Social Platform
+# E-ComAd - Advanced Enterprise Dashboard & Social Platform
 
 Nexus is a comprehensive, feature-rich web application combining enterprise dashboard capabilities with a fully functional social media platform. Built with modern web technologies, it offers a seamless experience for project management, e-commerce analytics, file management, and real-time communication.
 
